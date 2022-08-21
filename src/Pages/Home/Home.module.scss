@@ -1,0 +1,27 @@
+.main {
+  position: relative;
+  .message {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 4rem;
+    left: 4rem;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    z-index: 1000000000000;
+    background-color: green;
+    transform: translateX(-100vw);
+    transition: all 0.3s ease;
+
+    p {
+      font-size: 2rem;
+      color: white !important;
+    }
+
+    &.show {
+      opacity: 1;
+      transform: translateX(0);
+      visibility: visible;
+    }
+  }
+}

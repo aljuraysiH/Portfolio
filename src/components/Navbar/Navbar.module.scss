@@ -1,0 +1,151 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 1rem 2rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.4rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  color: var(--primary90);
+  background-color: var(--navbar-bg);
+  z-index: 100;
+
+  @media only screen and(min-width:93.75em) {
+    padding: 1rem 6rem 1.2rem;
+  }
+
+  @media only screen and (max-width: 53.125em) {
+    border: none;
+    padding: 1.2rem 2.4rem;
+  }
+}
+.logo {
+  cursor: pointer;
+  font-size: 2.4rem;
+  font-weight: 900;
+
+  background-image: var(--gredient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+
+  a:not(:last-child) {
+    padding: 0.8rem 1.4rem;
+    transition: transform 0.3s;
+  }
+  a:hover:not(:last-child) {
+    transform: translateY(-2px);
+    transition: all 0.3s;
+  }
+  a:active:not(:last-child) {
+    transform: translateY(0);
+    transition: all 0.3s;
+  }
+
+  .active:not(:last-child) {
+    color: var(--bg-btn);
+  }
+
+  @media only screen and (max-width: 53.125em) {
+    background-image: var(--gredientMenu);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.hidden {
+  @media only screen and (max-width: 53.125em) {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+  }
+}
+
+// Mobile menue
+
+.menu {
+  z-index: 100000;
+  display: none;
+
+  --s: 3rem; /* control the size */
+  --c: hsl(0, 0%, 8%); /* the color */
+
+  @media only screen and (max-width: 31.25em) {
+    // --s: 2.8rem; /* control the size */
+    top: 1.6rem;
+  }
+
+  height: var(--s);
+  aspect-ratio: 1;
+  border: none;
+  padding: 0;
+  border-inline: calc(var(--s) / 2) solid #0000;
+  box-sizing: content-box;
+  --_g: linear-gradient(var(--primary) 20%, #0000 0 80%, var(--primary) 0)
+    no-repeat content-box border-box;
+  background: var(--_g) 0, var(--_g) 100%;
+  background-size: 50% 100%;
+  position: fixed;
+  top: 1.4rem;
+
+  clip-path: inset(0 25%);
+  -webkit-mask: linear-gradient(90deg, #0000, #000 25% 75%, #0000);
+  cursor: pointer;
+  transition: background-position 0.3s var(--_s, 0.3s),
+    clip-path 0s var(--_s, 0.6s);
+
+  @media only screen and (max-width: 53.125em) {
+    display: block;
+  }
+}
+.menu:before,
+.menu:after {
+  content: "";
+  position: absolute;
+  inset: 40% 0;
+  background: var(--primary);
+  transition: transform 0.3s calc(0.3s - var(--_s, 0.3s));
+}
+.menu.open {
+  clip-path: inset(0);
+  background-position: -200%, 300%;
+  --_s: 0s;
+}
+.menu.open:before {
+  transform: rotate(45deg);
+}
+.menu.open:after {
+  transform: rotate(-45deg);
+}
+.menu:focus-visible {
+  clip-path: none;
+  -webkit-mask: none;
+  border: none;
+  outline: 2px solid var(--c);
+  outline-offset: 5px;
+}
+
+.ar {
+  left: 0.8rem;
+}
+.en {
+  right: 0.8rem;
+}

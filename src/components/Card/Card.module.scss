@@ -1,0 +1,166 @@
+.flipCard {
+  background-color: transparent;
+  perspective: 1000px;
+  width: 48rem;
+  height: 27rem;
+
+  @media only screen and (max-width: 31.25em) {
+    width: 45rem;
+    height: 30rem;
+  }
+  @media only screen and (max-width: 27em) {
+    width: 38rem;
+  }
+
+  &:hover .card {
+    transform: rotateY(180deg);
+    @media (hover: none) {
+      & {
+        transform: none;
+      }
+    }
+  }
+  &:hover .card-back,
+  &:focus-within .card-back {
+    opacity: 1;
+  }
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: all 0.8s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &-front,
+  &-back {
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+  }
+
+  &-back {
+    cursor: auto;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    opacity: 0;
+
+    @media (hover: none) {
+      & {
+        transform: rotateY(0deg);
+        opacity: 1;
+      }
+    }
+
+    h4 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+
+      @media (hover: none) {
+        & {
+          display: none;
+        }
+      }
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+
+      @media (hover: none) {
+        & {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  font-size: 2rem;
+  padding: 1.2rem 2.4rem;
+  position: relative;
+  overflow: hidden;
+  color: var(--secondary);
+
+  &:hover::before {
+    left: 0;
+  }
+  &:hover::after {
+    right: 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    transition: all 0.5s;
+    background-color: var(--primary);
+  }
+
+  &::before {
+    top: 0;
+    left: -100%;
+  }
+  &::after {
+    bottom: 0;
+    right: -100%;
+  }
+
+  span::before,
+  span::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    transition: all 0.5s;
+    background-color: var(--primary);
+  }
+
+  &:hover span::before {
+    top: 0;
+  }
+  &:hover span::after {
+    top: 0;
+  }
+  span::before {
+    top: -100%;
+    right: 0;
+  }
+  span::after {
+    top: 100%;
+    left: 0;
+  }
+
+  @media (hover: none) {
+    & {
+      background-color: rgba(0, 0, 0, 0.719);
+      color: var(--primary10);
+      padding: 1.2rem 2.4rem;
+    }
+  }
+}
