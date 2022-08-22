@@ -1,8 +1,8 @@
-import OmniFood from "../assets/img/OmniFood.jpg";
-import Nexter from "../assets/img/Nexter.jpg";
-import OutDoors from "../assets/img/Outdoors.jpg";
-import Movie from "../assets/img/Movie.jpg";
-import Todo from "../assets/img/Screen Shot 2022-08-19 at 6.22.56 PM.jpg";
+import OmniFood from "../assets/imgs/Omnifood.jpg";
+import Nexter from "../assets/imgs/nexter.jpg";
+import OutDoors from "../assets/imgs/Natours.jpg";
+import Movie from "../assets/imgs/MoviesTrailer.jpg";
+import Todo from "../assets/imgs/Todo.jpg";
 
 export const projectsData = [
   {
@@ -11,6 +11,13 @@ export const projectsData = [
     description: "UI for food website",
     arDescription: "واجهة مستخدم لموقع أطعمة",
     link: "https://omnifood-aljuraysi.netlify.app/",
+  },
+  {
+    img: OutDoors,
+    name: "Outdoors",
+    description: "UI for tourism website",
+    arDescription: "واجهة مستخدم لموقع سياحة",
+    link: "https://natours-aljuraysi.netlify.app/",
   },
   {
     img: Todo,
@@ -26,13 +33,7 @@ export const projectsData = [
     arDescription: "واجهة مستخدم لموقع عقارات",
     link: "https://nexter-aljuraysi.netlify.app/",
   },
-  {
-    img: OutDoors,
-    name: "Outdoors",
-    description: "UI for tourism website",
-    arDescription: "واجهة مستخدم لموقع سياحة",
-    link: "https://natours-aljuraysi.netlify.app/",
-  },
+
   {
     img: Movie,
     name: "Movie Trailer",
