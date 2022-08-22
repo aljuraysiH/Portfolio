@@ -1,7 +1,7 @@
 .navbar {
   position: fixed;
   width: 100%;
-  padding: 1.5rem 4rem;
+  padding: 2rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@
   z-index: 100;
 
   @media only screen and(max-width:93.75em) {
-    padding: 1.5rem 6rem;
+    padding: 2rem 6rem;
   }
 
   @media only screen and (max-width: 53.125em) {

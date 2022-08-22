@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import styles from "./ProjectCard.module.scss";
 
-const ProjectCard = ({ img, name, link }) => {
+const ProjectCard = ({ img, name, link, github }) => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const ProjectCard = ({ img, name, link }) => {
           <a href={link} target="_blank" rel="noreferrer">
             {t("view_website")}
           </a>
-          <a href={link} target="_blank" rel="noreferrer" className="">
+          <a href={github} target="_blank" rel="noreferrer" className="">
             Github
           </a>
         </div>

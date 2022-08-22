@@ -1,7 +1,7 @@
 import styles from "./About.module.scss";
 import { useEffect } from "react";
 import CV from "../../assets/Hamad-Aljuraysi.pdf";
-import picture from "../../assets/img/pp.png";
+import picture from "../../assets/imgs/pp.png";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
 

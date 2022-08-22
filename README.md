@@ -10,10 +10,6 @@
 - React JS
 - Framer motion and AOS
 
-## Live Demo (if available)
-
- <img src='./src/assets/demo/portfolio.gif' width='400px'>
-
 ## Authors
 
 👤 **Hamad Aljuraysi**
