@@ -23,5 +23,6 @@
   "name_form": "Name",
   "email": "Email",
   "message": "Message",
-  "send": "Send"
+  "send": "Send",
+  "notification": "Email has been sent!"
 }

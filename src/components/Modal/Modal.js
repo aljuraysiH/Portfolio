@@ -1,18 +1,21 @@
 import styles from "./Modal.module.scss";
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import useModal from "../../hooks/useModal";
 import { MdEmail, MdClose } from "react-icons/md";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+import Loader from "../Loader/Loader";
 
 function Modal() {
-  const { showModal, setShowModal, setIsMessageSent } = useModal();
+  const { showModal, setShowModal } = useModal();
+  const [isLoading, setisLoading] = useState(false);
   const { t } = useTranslation();
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setisLoading(true);
     emailjs
       .sendForm(
         "service_w9y2ixv",
@@ -22,11 +25,14 @@ function Modal() {
       )
       .then(
         () => {
-          setIsMessageSent(true);
+          setisLoading(false);
+          toast.success(t("notification"));
           e.target.reset();
           setShowModal(!showModal);
         },
         (error) => {
+          setisLoading(false);
+          toast.error("Something went wrong");
           console.log(error.text);
         }
       );
@@ -34,6 +40,7 @@ function Modal() {
 
   return (
     <>
+      {isLoading && <Loader isLoading={isLoading} />}
       <div className={`${styles.container} ${showModal ? styles.active : ""}`}>
         <div
           onClick={() => setShowModal(!showModal)}
@@ -51,18 +58,18 @@ function Modal() {
             </div>
             <form ref={form} onSubmit={sendEmail}>
               <div>
-                <label htmlFor='name'>{t("name_form")}</label>
-                <input id='name' type='text' name='user_name' required />
+                <label htmlFor="name">{t("name_form")}</label>
+                <input id="name" type="text" name="user_name" required />
               </div>
               <div>
-                <label htmlFor='email'>{t("email")}</label>
-                <input id='email' type='email' name='user_email' required />
+                <label htmlFor="email">{t("email")}</label>
+                <input id="email" type="email" name="user_email" required />
               </div>
               <div>
-                <label htmlFor='message'>{t("message")}</label>
-                <textarea id='message' name='message' required />
+                <label htmlFor="message">{t("message")}</label>
+                <textarea id="message" name="message" required />
               </div>
-              <button type='submit'>{t("send")}</button>
+              <button type="submit">{t("send")}</button>
             </form>
           </div>
         </div>

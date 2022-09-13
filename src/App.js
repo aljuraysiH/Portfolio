@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import Home from "./Pages/Home/Home";
 import Projects from "./Pages/Projects/Projects";
 import Modal from "./components/Modal/Modal";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { i18n } = useTranslation();
@@ -34,6 +35,16 @@ function App() {
   return (
     <>
       <Modal />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        closeOnClick
+        rtl={i18n.language === "ar" ? true : false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
       <div className={`app ${i18n.language === "ar" ? "ar" : ""}`}>
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.key}>
