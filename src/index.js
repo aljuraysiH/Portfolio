@@ -1,14 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./i18n";
-import "./index.scss";
-import "react-toastify/dist/ReactToastify.css";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "./context/ThemeContext";
-import { ModalProvider } from "./context/ModalContext";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import { ThemeProvider } from './context/ThemeContext';
+import { ModalProvider } from './context/ModalContext';
+import './i18n';
+import App from './App';
+
+import 'react-toastify/dist/ReactToastify.css';
+import './index.scss';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <ThemeProvider>

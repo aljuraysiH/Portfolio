@@ -1,24 +1,26 @@
-import styles from "./Toggle.module.scss";
-import { useTranslation } from "react-i18next";
-const Toggle = ({ onClick, theme, language, setLanguage }) => {
+import { useTranslation } from 'react-i18next';
+
+import styles from './Toggle.module.scss';
+
+const Toggle = ({ onClick, theme }) => {
   const { t, i18n } = useTranslation();
 
   const btnHandler = () => {
-    if (language === "en") {
-      setLanguage("ar");
+    if (i18n.language === 'en') {
+      i18n.changeLanguage('ar');
     } else {
-      setLanguage("en");
+      i18n.changeLanguage('en');
     }
   };
 
   return (
     <div
       className={`${
-        i18n.language === "en" ? styles["toggle-container"] : styles.ar
+        i18n.language === 'en' ? styles['toggle-container'] : styles.ar
       }`}
     >
       <div
-        className={`${styles.toggle} ${theme === "dark" ? styles.night : ""}`}
+        className={`${styles.toggle} ${theme === 'dark' ? styles.night : ''}`}
         onClick={onClick}
       >
         <div className={styles.day}></div>
@@ -30,7 +32,7 @@ const Toggle = ({ onClick, theme, language, setLanguage }) => {
         </div>
       </div>
       <button className={styles.lang} onClick={btnHandler}>
-        {t("lng")}
+        {t('lng')}
       </button>
     </div>
   );

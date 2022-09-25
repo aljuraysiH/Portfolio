@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
-import styles from "./Navbar.module.scss";
-import { Link, Outlet } from "react-router-dom";
-import useTheme from "../../hooks/useTheme";
-import useModal from "../../hooks/useModal";
-import Toggle from "../Toggle/Toggle";
-import { useTranslation } from "react-i18next";
+import { useState, useEffect } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const Navbar = ({ language, setLanguage }) => {
+import useTheme from '../../hooks/useTheme';
+import useModal from '../../hooks/useModal';
+import Toggle from '../Toggle/Toggle';
+
+import styles from './Navbar.module.scss';
+
+const Navbar = () => {
   const { showModal, setShowModal } = useModal();
   const { t, i18n } = useTranslation();
   const [toggle, setToggle] = useState(false);
@@ -14,7 +16,7 @@ const Navbar = ({ language, setLanguage }) => {
 
   useEffect(() => {
     document.documentElement.className = theme;
-    localStorage.setItem("theme", theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const handleContactBTN = (e) => {
@@ -23,36 +25,33 @@ const Navbar = ({ language, setLanguage }) => {
     setShowModal(!showModal);
   };
 
+  console.log(t('about'));
+
   return (
     <>
       <div className={styles.navbar}>
-        <Link to={"/"}>
-          <p className={styles.logo}>{t("logo")}</p>
+        <Link to={'/'}>
+          <p className={styles.logo}>{t('logo')}</p>
         </Link>
-        <Toggle
-          onClick={toggleTheme}
-          theme={theme}
-          language={language}
-          setLanguage={setLanguage}
-        />
-        <nav className={`${styles.nav} ${toggle ? "" : styles.hidden}`}>
+        <Toggle onClick={toggleTheme} theme={theme} />
+        <nav className={`${styles.nav} ${toggle ? '' : styles.hidden}`}>
           <a href='#about' onClick={() => setToggle(false)}>
-            {t("about")}
+            {t('about')}
           </a>
           <a href='#projects' onClick={() => setToggle(false)}>
-            {t("projects")}
+            {t('projects')}
           </a>
           <a href='#skills' onClick={() => setToggle(false)}>
-            {t("skills")}
+            {t('skills')}
           </a>
           <a href='/' className='btng' onClick={handleContactBTN}>
             <span></span>
-            {t("contact")}
+            {t('contact')}
           </a>
         </nav>
         <button
-          className={`${styles.menu} ${toggle ? styles.open : ""} ${
-            i18n.language === "ar" ? styles.ar : styles.en
+          className={`${styles.menu} ${toggle ? styles.open : ''} ${
+            i18n.language === 'ar' ? styles.ar : styles.en
           }`}
           onClick={() => setToggle(!toggle)}
         ></button>
