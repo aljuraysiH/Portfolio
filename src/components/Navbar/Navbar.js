@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import useTheme from '../../hooks/useTheme';
 import useModal from '../../hooks/useModal';
 import Toggle from '../Toggle/Toggle';
+import NavLink from './NavLink';
 
 import styles from './Navbar.module.scss';
 
@@ -25,25 +26,26 @@ const Navbar = () => {
     setShowModal(!showModal);
   };
 
-  console.log(t('about'));
+  const closeNav = () => setToggle(false);
 
   return (
     <>
       <div className={styles.navbar}>
-        <Link to={'/'}>
+        <NavLink to='home' offset={-500}>
           <p className={styles.logo}>{t('logo')}</p>
-        </Link>
+        </NavLink>
         <Toggle onClick={toggleTheme} theme={theme} />
         <nav className={`${styles.nav} ${toggle ? '' : styles.hidden}`}>
-          <a href='#about' onClick={() => setToggle(false)}>
+          <NavLink to='about' onClick={closeNav} offset={-70}>
             {t('about')}
-          </a>
-          <a href='#projects' onClick={() => setToggle(false)}>
+          </NavLink>
+          <NavLink to='projects' onClick={closeNav} offset={-115}>
             {t('projects')}
-          </a>
-          <a href='#skills' onClick={() => setToggle(false)}>
+          </NavLink>
+          <NavLink to='skills' onClick={closeNav} offset={0}>
             {t('skills')}
-          </a>
+          </NavLink>
+
           <a href='/' className='btng' onClick={handleContactBTN}>
             <span></span>
             {t('contact')}

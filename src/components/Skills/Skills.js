@@ -1,23 +1,21 @@
-import { useEffect } from "react";
-import styles from "./Skills.module.scss";
-import { HtmlIcon, CssIcon, JavaScriptIcon, ReactIcon } from "../SVG/Icons";
-import AOS from "aos";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
-const About = ({ id }) => {
+import { HtmlIcon, CssIcon, JavaScriptIcon, ReactIcon } from '../SVG/Icons';
+
+import styles from './Skills.module.scss';
+
+const About = () => {
   const { t } = useTranslation();
-  useEffect(() => {
-    AOS.init();
-  });
+
   return (
     <section
       className={styles.container}
-      id={id}
+      id='skills'
       data-aos='fade-up'
       data-aos-duration='1500'
     >
-      <h2 className={styles.header}>{t("skills")}</h2>
-      <section className={styles["icons-container"]}>
+      <h2 className={styles.header}>{t('skills')}</h2>
+      <section className={styles['icons-container']}>
         <figure className={styles.card}>
           <span>HTML</span>
           <HtmlIcon />

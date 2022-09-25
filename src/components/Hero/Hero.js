@@ -1,11 +1,13 @@
-import { heroVariantsLeft, heroVariantsRight } from "./HeroVariants";
-import styles from "./Hero.module.scss";
-import SVG from "../SVG/SVG";
-import { TwitterLogo, LinkedinLogo, GithubLogo } from "phosphor-react";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import useModal from "../../hooks/useModal";
-import Social from "../Social/Social";
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+import { TwitterLogo, LinkedinLogo, GithubLogo } from 'phosphor-react';
+
+import SVG from '../SVG/SVG';
+import { heroVariantsLeft, heroVariantsRight } from './HeroVariants';
+import useModal from '../../hooks/useModal';
+import Social from '../Social/Social';
+
+import styles from './Hero.module.scss';
 
 const Hero = () => {
   const { showModal, setShowModal } = useModal();
@@ -18,13 +20,13 @@ const Hero = () => {
         initial='hidden'
         animate='visiable'
       >
-        <h2 className={styles["hero-header"]}>
+        <h2 className={styles['hero-header']}>
           <span>
-            {t("welcome")} <br></br>
+            {t('welcome')} <br></br>
           </span>
-          {t("name")}
+          {t('name')}
         </h2>
-        <p className={styles["hero-text"]}>{t("info")}</p>
+        <p className={styles['hero-text']}>{t('info')}</p>
         <a
           href='/'
           className={`btng ${styles.btn}`}
@@ -34,7 +36,7 @@ const Hero = () => {
           }}
         >
           <span></span>
-          {t("hire_me")}
+          {t('hire_me')}
         </a>
         <div className={styles.socials}>
           <Social href='https://github.com/aljuraysiH'>
@@ -51,7 +53,7 @@ const Hero = () => {
         </div>
       </motion.article>
       <motion.figure
-        className={styles["img-container"]}
+        className={styles['img-container']}
         variants={heroVariantsRight}
         initial='hidden'
         animate='visiable'

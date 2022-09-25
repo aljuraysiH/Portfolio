@@ -1,14 +1,16 @@
-import styles from "./Footer.module.scss";
-import { TwitterLogo, LinkedinLogo, GithubLogo, ArrowUp } from "phosphor-react";
+import { TwitterLogo, LinkedinLogo, GithubLogo, ArrowUp } from 'phosphor-react';
+import { animateScroll as scroll } from 'react-scroll';
 
-import Social from "../Social/Social";
+import Social from '../Social/Social';
+
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
     <footer className={styles.container}>
-      <a href='#hero'>
+      <button onClick={() => scroll.scrollToTop()} className={styles.btn}>
         <ArrowUp className={styles.social} />
-      </a>
+      </button>
 
       <div className={styles.icons}>
         <Social href='https://github.com/aljuraysiH'>

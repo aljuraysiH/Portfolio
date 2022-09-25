@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
 *,
 *::before,
 *::after {
@@ -20,8 +20,8 @@
 }
 
 .dark {
-  --skillsShadow: rgba(255, 255, 255, 0.109);
-  --navbar-bg: rgba(40, 44, 53, 0.8);
+  --skillsShadow: rgba(255, 255, 255, 0.15);
+  --navbar-bg: rgba(40, 44, 53, 0.9);
   --gredientMenu: radial-gradient(
     circle,
     #3b5bdb,
@@ -45,7 +45,7 @@
 }
 .light {
   --skillsShadow: rgba(0, 0, 0, 0.2);
-  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
   --gredientMenu: radial-gradient(
     circle,
     #8696d4,
@@ -72,7 +72,6 @@
 html {
   font-size: 62.5%;
   overflow-y: scroll;
-  scroll-behavior: smooth;
 
   @media only screen and(min-width:93.75em) {
     font-size: 70%;
@@ -90,7 +89,7 @@ html {
 }
 
 body {
-  font-family: "Lato", "Tajawal", sans-serif;
+  font-family: 'Lato', 'Tajawal', sans-serif;
   background: var(--bg);
   color: var(--primary);
 }
@@ -135,6 +134,7 @@ a {
   text-decoration: none;
   color: var(--primary);
   display: inline-block;
+  cursor: pointer;
 }
 
 .btng {
@@ -163,7 +163,7 @@ a {
     z-index: -1;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       width: 8%;
       height: 500%;

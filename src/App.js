@@ -6,12 +6,16 @@ import { ToastContainer } from 'react-toastify';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './Pages/Home/Home';
-import Projects from './Pages/Projects/Projects';
 import Modal from './components/Modal/Modal';
+import Aos from 'aos';
 
 function App() {
   const { i18n } = useTranslation();
   const location = useLocation();
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   useEffect(() => {
     if (i18n.language === 'ar') {
@@ -40,7 +44,6 @@ function App() {
             <Route path='/' element={<Navbar />}>
               <Route index element={<Home />} />
               <Route path='*' element={<Home />} />
-              <Route path='/projects' element={<Projects />} />
             </Route>
           </Routes>
         </AnimatePresence>

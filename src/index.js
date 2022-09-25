@@ -7,6 +7,7 @@ import { ModalProvider } from './context/ModalContext';
 import './i18n';
 import App from './App';
 
+import 'aos/dist/aos.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.scss';
 
