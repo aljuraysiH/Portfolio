@@ -25,7 +25,6 @@ function About() {
           <span>{t('about_nat')}</span>
           <span>{t('about_age')}</span>
           <span>{t('about_city')}</span>
-          <span>{t('about_degree')}</span>
           <span>{t('about_major')}</span>
           <a href={CV} download>
             {t('about_cv')}

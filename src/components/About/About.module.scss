@@ -73,6 +73,10 @@
       }
       span {
         color: var(--secondary);
+
+        &:nth-child(5) {
+          grid-column: 1/-1;
+        }
       }
     }
   }

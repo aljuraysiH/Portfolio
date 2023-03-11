@@ -1,9 +1,14 @@
-import OmniFood from "../assets/imgs/Omnifood.jpg";
-import OutDoors from "../assets/imgs/Natours.jpg";
 import Movie from "../assets/imgs/MoviesTrailer.jpg";
-import Todo from "../assets/imgs/Todo.jpg";
+import OutDoors from "../assets/imgs/Natours.jpg";
+import OmniFood from "../assets/imgs/Omnifood.jpg";
+import Raom from "../assets/imgs/raom.jpg";
 
 export const projectsData = [
+  {
+    img: Raom,
+    name: "Ra'om",
+    link: "https://raom.om/",
+  },
   {
     img: OmniFood,
     name: "Omnifood",
@@ -15,12 +20,6 @@ export const projectsData = [
     name: "Natours",
     github: "https://github.com/aljuraysiH/Natours",
     link: "https://natours-aljuraysi.netlify.app/",
-  },
-  {
-    img: Todo,
-    name: "Todo",
-    github: "https://github.com/aljuraysiH/Todo",
-    link: "https://todo-hamad.netlify.app/",
   },
   {
     img: Movie,
